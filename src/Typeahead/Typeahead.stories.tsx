@@ -24,6 +24,7 @@ export default {
     elementId: 'selectElement',
     labelKey: 'label',
     options: standardOptions,
+    placeholder: 'Select a service...',
     valueKey: 'id',
   },
   argTypes: {
