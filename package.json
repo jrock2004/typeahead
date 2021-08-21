@@ -19,6 +19,7 @@
     "start:safari": "BROWSER='safari' start-storybook -p 6006",
     "start:firefox": "BROWSER='firefox' start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "release": "standard-version",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -71,6 +72,7 @@
     "eslint": "^7.32.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "husky": "^7.0.0",
+    "standard-version": "^9.3.1",
     "storybook-css-modules-preset": "^1.1.1"
   }
 }
