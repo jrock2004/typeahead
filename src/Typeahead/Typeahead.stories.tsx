@@ -52,3 +52,19 @@ const Template: ComponentStory<typeof Typeahead> = (args) => {
 };
 
 export const Default = Template.bind({});
+
+export const WithSetValue = Template.bind({});
+WithSetValue.args = {
+  defaultValue: standardOptions[1],
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  isDisabled: true,
+};
+
+export const DisabledWithValue = Template.bind({});
+DisabledWithValue.args = {
+  defaultValue: standardOptions[1],
+  isDisabled: true,
+};

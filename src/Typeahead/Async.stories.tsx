@@ -45,7 +45,7 @@ const promiseOptions = (inputValue: string) => {
 };
 
 export default {
-  title: 'Async Typeahead',
+  title: 'Typeahead Search',
   component: Typeahead,
   args: {
     elementId: 'searchElement',

@@ -4,7 +4,9 @@ import AsyncSelect from 'react-select/async';
 import { StyleOptionType, TypeaheadProps } from './Typeahead.d';
 
 export const Typeahead = ({
+  defaultValue,
   elementId,
+  isDisabled = false,
   labelKey = 'label',
   onChange,
   options,
@@ -61,6 +63,7 @@ export const Typeahead = ({
         inputId={elementId}
         getOptionLabel={(option) => getOption(labelKey, option)}
         getOptionValue={(option) => getOption(valueKey, option)}
+        isDisabled={isDisabled}
         loadOptions={searchFunction}
         openMenuOnClick={false}
         placeholder={placeholder}
@@ -71,8 +74,10 @@ export const Typeahead = ({
       <Select
         styles={selectStyles}
         inputId={elementId}
+        defaultValue={defaultValue}
         getOptionLabel={(option) => getOption(labelKey, option)}
         getOptionValue={(option) => getOption(valueKey, option)}
+        isDisabled={isDisabled}
         onChange={onChange}
         options={options}
         placeholder={placeholder}

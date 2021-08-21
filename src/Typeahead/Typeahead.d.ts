@@ -11,7 +11,9 @@ export type StyleOptionType = {
 };
 
 export type TypeaheadProps = {
+  defaultValue?: OptionsType | OptionsType[] | null | undefined;
   elementId: string;
+  isDisabled?: boolean;
   labelKey?: string;
   onChange: (item: OptionsType) => StyleOptionType;
   options: OptionsType;
