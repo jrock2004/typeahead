@@ -20,6 +20,7 @@
     "start:safari": "BROWSER='safari' start-storybook -p 6006",
     "start:firefox": "BROWSER='firefox' start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "build-storybook-docs": "build-storybook --docs",
     "release": "standard-version",
     "prepare": "husky install"
   },
