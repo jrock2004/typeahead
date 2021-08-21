@@ -9,6 +9,8 @@ export const Typeahead = ({
   elementId,
   isDisabled = false,
   labelKey = 'label',
+  loadingText = 'Loading...',
+  noResultsText = 'No results',
   onChange,
   options,
   placeholder = 'Select...',
@@ -77,7 +79,8 @@ export const Typeahead = ({
         getOptionValue={(option) => getOption(valueKey, option)}
         isDisabled={isDisabled}
         loadOptions={searchFunction}
-        noOptionsMessage={() => '0 results'}
+        loadingMessage={() => loadingText}
+        noOptionsMessage={() => noResultsText}
         openMenuOnClick={false}
         placeholder={placeholder}
       />
@@ -92,7 +95,8 @@ export const Typeahead = ({
         getOptionLabel={(option) => getOption(labelKey, option)}
         getOptionValue={(option) => getOption(valueKey, option)}
         isDisabled={isDisabled}
-        noOptionsMessage={() => '0 results'}
+        loadingMessage={() => loadingText}
+        noOptionsMessage={() => noResultsText}
         onChange={onChange}
         options={options}
         placeholder={placeholder}

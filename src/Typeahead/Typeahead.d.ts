@@ -15,6 +15,8 @@ export type TypeaheadProps = {
   elementId: string;
   isDisabled?: boolean;
   labelKey?: string;
+  loadingText?: string;
+  noResultsText?: string;
   onChange: (item: OptionsType) => StyleOptionType;
   options: OptionsType;
   placeholder?: string;
