@@ -15,5 +15,10 @@ export type TypeaheadProps = {
   labelKey?: string;
   onChange: (item: OptionsType) => StyleOptionType;
   options: OptionsType;
+  placeholder?: string;
+  searchFunction(
+    inputValue: string,
+    callback: (options: OptionsType<OptionType>) => void
+  ): void;
   valueKey?: string;
 };

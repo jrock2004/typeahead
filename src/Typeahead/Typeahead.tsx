@@ -1,4 +1,5 @@
 import Select, { StylesConfig } from 'react-select';
+import AsyncSelect from 'react-select/async';
 
 import { StyleOptionType, TypeaheadProps } from './Typeahead.d';
 
@@ -7,6 +8,8 @@ export const Typeahead = ({
   labelKey = 'label',
   onChange,
   options,
+  placeholder = 'Select...',
+  searchFunction,
   valueKey = 'value',
 }: TypeaheadProps): JSX.Element => {
   const selectStyles: StylesConfig<StyleOptionType, boolean> = {
@@ -28,6 +31,15 @@ export const Typeahead = ({
     }),
   };
 
+  const asyncCustomStyles = {
+    ...selectStyles,
+    dropdownIndicator: () => {
+      return {
+        display: 'none',
+      };
+    },
+  };
+
   /**
    * Helps react-select know which option it should use for its look ups
    *
@@ -42,14 +54,29 @@ export const Typeahead = ({
     return value ? value.toString() : 'label';
   };
 
-  return (
-    <Select
-      styles={selectStyles}
-      inputId={elementId}
-      getOptionLabel={(option) => getOption(labelKey, option)}
-      getOptionValue={(option) => getOption(valueKey, option)}
-      onChange={onChange}
-      options={options}
-    />
-  );
+  if (typeof searchFunction !== 'undefined') {
+    return (
+      <AsyncSelect
+        styles={asyncCustomStyles}
+        inputId={elementId}
+        getOptionLabel={(option) => getOption(labelKey, option)}
+        getOptionValue={(option) => getOption(valueKey, option)}
+        loadOptions={searchFunction}
+        openMenuOnClick={false}
+        placeholder={placeholder}
+      />
+    );
+  } else {
+    return (
+      <Select
+        styles={selectStyles}
+        inputId={elementId}
+        getOptionLabel={(option) => getOption(labelKey, option)}
+        getOptionValue={(option) => getOption(valueKey, option)}
+        onChange={onChange}
+        options={options}
+        placeholder={placeholder}
+      />
+    );
+  }
 };
