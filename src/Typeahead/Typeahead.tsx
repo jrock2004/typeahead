@@ -2,10 +2,15 @@ import Select, { StylesConfig } from 'react-select';
 import AsyncSelect from 'react-select/async';
 
 import { StyleOptionType, TypeaheadProps } from './Typeahead.d';
+import { MenuList } from './components/MenuList';
 
 export const Typeahead = ({
+  defaultValue,
   elementId,
+  isDisabled = false,
   labelKey = 'label',
+  loadingText = 'Loading...',
+  noResultsText = 'No results',
   onChange,
   options,
   placeholder = 'Select...',
@@ -21,9 +26,19 @@ export const Typeahead = ({
       fontSize: '0.9375rem',
       minWidth: '250px',
     }),
+    loadingMessage: (provided) => ({
+      ...provided,
+      color: '#2d2d2d',
+      textTransform: 'uppercase',
+    }),
     menuList: (provided) => ({
       ...provided,
-      fontSize: '0.9375rem',
+      fontSize: '0.8125rem',
+    }),
+    noOptionsMessage: (provided) => ({
+      ...provided,
+      color: '#2d2d2d',
+      textTransform: 'uppercase',
     }),
     placeholder: (provided) => ({
       ...provided,
@@ -59,9 +74,13 @@ export const Typeahead = ({
       <AsyncSelect
         styles={asyncCustomStyles}
         inputId={elementId}
+        components={{ MenuList }}
         getOptionLabel={(option) => getOption(labelKey, option)}
         getOptionValue={(option) => getOption(valueKey, option)}
+        isDisabled={isDisabled}
         loadOptions={searchFunction}
+        loadingMessage={() => loadingText}
+        noOptionsMessage={() => noResultsText}
         openMenuOnClick={false}
         placeholder={placeholder}
       />
@@ -71,8 +90,13 @@ export const Typeahead = ({
       <Select
         styles={selectStyles}
         inputId={elementId}
+        components={{ MenuList }}
+        defaultValue={defaultValue}
         getOptionLabel={(option) => getOption(labelKey, option)}
         getOptionValue={(option) => getOption(valueKey, option)}
+        isDisabled={isDisabled}
+        loadingMessage={() => loadingText}
+        noOptionsMessage={() => noResultsText}
         onChange={onChange}
         options={options}
         placeholder={placeholder}
