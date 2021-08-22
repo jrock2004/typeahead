@@ -13,6 +13,7 @@ export type StyleOptionType = {
 export type TypeaheadProps = {
   defaultValue?: OptionsType | OptionsType[] | null | undefined;
   elementId: string;
+  hasError: boolean;
   isDisabled?: boolean;
   labelKey?: string;
   loadingText?: string;
