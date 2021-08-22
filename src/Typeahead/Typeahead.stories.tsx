@@ -76,7 +76,7 @@ const ErrorTemplate: ComponentStory<typeof Typeahead> = (args) => {
           color: '#e00000',
           display: 'block',
           fontSize: '0.9375rem',
-          margin: '0.5625rem 0 0 -1.625rem',
+          margin: '0.5625rem 0 0 3.5625rem',
         }}
       >
         Please select a service before saving
