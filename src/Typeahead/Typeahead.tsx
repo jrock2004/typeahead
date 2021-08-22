@@ -1,12 +1,14 @@
 import Select, { StylesConfig } from 'react-select';
 import AsyncSelect from 'react-select/async';
 
+import styles from './Typeahead.module.css';
 import { StyleOptionType, TypeaheadProps } from './Typeahead.d';
 import { MenuList } from './components/MenuList';
 
 export const Typeahead = ({
   defaultValue,
   elementId,
+  hasError,
   isDisabled = false,
   labelKey = 'label',
   loadingText = 'Loading...',
@@ -21,11 +23,19 @@ export const Typeahead = ({
     indicatorSeparator: () => ({
       display: 'none',
     }),
-    control: (provided) => ({
-      ...provided,
-      fontSize: '0.9375rem',
-      minWidth: '250px',
-    }),
+    control: (provided) =>
+      hasError
+        ? {
+            ...provided,
+            borderColor: '#e00000',
+            fontSize: '0.9375rem',
+            minWidth: '250px',
+          }
+        : {
+            ...provided,
+            fontSize: '0.9375rem',
+            minWidth: '250px',
+          },
     loadingMessage: (provided) => ({
       ...provided,
       color: '#2d2d2d',
@@ -89,6 +99,10 @@ export const Typeahead = ({
     return (
       <Select
         styles={selectStyles}
+        className={hasError && styles.typeaheadError}
+        aria-labelledby={elementId}
+        aria-errormessage={`${elementId}-help-text`}
+        aria-valid={!hasError}
         inputId={elementId}
         components={{ MenuList }}
         defaultValue={defaultValue}
