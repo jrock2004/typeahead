@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/jrock2004/typeahead/compare/v0.1.4...v0.1.5) (2021-08-22)
+
+
+### Features
+
+* adding a way to see select in an error state ([#6](https://github.com/jrock2004/typeahead/issues/6)) ([50c7491](https://github.com/jrock2004/typeahead/commit/50c749169b89d56bc0a82d80d6d186523f847a1d))
+
 ### [0.1.4](https://github.com/jrock2004/typeahead/compare/v0.1.3...v0.1.4) (2021-08-21)
 
 ### [0.1.3](https://github.com/jrock2004/typeahead/compare/v0.1.2...v0.1.3) (2021-08-21)
